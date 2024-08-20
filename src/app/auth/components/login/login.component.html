@@ -1,0 +1,41 @@
+
+
+
+
+<div class="bg-container">
+  <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip = "Working..">
+    <div class="parent login-form-container">
+      <div class="child">
+        <div nz-row class="imgDiv">
+          <div nz-col nzSpan="24">
+            <h1 style="margin-left: 100px">Giriş Yap </h1>
+          </div>
+        </div>
+
+        <form nz-form [formGroup]="loginForm"  class="login-form">
+
+          <nz-form-item>
+            <nz-form-control nzErrorTip="E-Postanızı Giriniz.">
+              <nz-input-group nzPrefixIcon="user">
+                <input type="text" nz-input placeholder="E-Posta" formControlName="email"/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Şifrenizi Giriniz.">
+              <nz-input-group nzPrefixIcon="lock">
+                <input type="password" nz-input placeholder="Şifre" formControlName="password"/>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+
+          <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="login()" [disabled]="loginForm.invalid" >Giriş Yap</button>
+          Ya Da <a routerLink="/signup">Kaydol</a>
+        </form>
+      </div>
+    </div>
+  </nz-spin>
+
+</div>
+

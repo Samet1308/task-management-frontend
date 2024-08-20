@@ -1,0 +1,73 @@
+.login-form{
+  max-width: 300px;
+}
+
+.imgDiv{
+  width: 100%;
+  vertical-align: middle;
+  margin-bottom: 40px ;
+}
+.login-form-margin{
+  margin-bottom: 26px;
+}
+.login-form-forgot{
+  float:right;
+}
+
+.login-form-button{
+  width: 100%;
+}
+
+.child{
+  padding: 50px;
+  position: absolute;
+  width: 380px;
+  background-color: #c7dbff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 1px 1px 15px -7px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  margin-bottom: 32px;
+}
+
+.parent{
+  width: 100%;
+  height: 91vh;
+  position: relative;
+}
+.bg-container{
+  background-color: rgba(248, 248, 248, 0.3);
+}
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(248, 248, 248, 0.7); /* Beyaz renk ve %30 opaklık */
+  opacity: 0.7; /* Arka planın %70 opak olması */
+}
+.login-form-container {
+  position: relative;
+  z-index: 1; /* Login formunu arka plan fotoğrafının üzerine getir */
+}
+
+.login-form-container {
+  opacity: 1; /* İçerik olan login formunun tamamen opak olması */
+}
+
+
+button{
+  background-color: #001529;
+}
+
+
+
+
+
+
+
+
