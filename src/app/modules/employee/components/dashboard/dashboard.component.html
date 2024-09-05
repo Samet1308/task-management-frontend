@@ -1,1 +1,54 @@
-<p>dashboard works!</p>
+<div class="bg-container">
+
+  <div class="task-list" >
+    <mat-card class="task-card" *ngFor="let task of listOfTasks">
+
+      <div class="task-details">
+        <h2 class="task-name">{{ task.title}}</h2>
+        <p class="task-description">{{ task.description }}</p>
+        <mat-divider></mat-divider>
+
+        <div class="task-info">
+          <div class="info-row">
+            <span class="info-label">Bitiş Tarihi: </span>
+            <span class="info-value">{{ task.dueDate | date: 'MMM , d, y'}}</span> </div>
+          <div class="info-row">
+            <span class="info-label"> Personel:</span>
+            <span class="info-value">{{ task.employeeName }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Öncelik:</span>
+            <span class="info-value">{{ task.priority }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Durumu:</span>
+            <span class="info-value">{{ task.taskStatus }}</span>
+          </div>
+
+        </div>
+
+        <mat-divider></mat-divider>
+        <div class="actions">
+
+          <button mat-icon-button color="primary"  [routerLink]="'/employee/task-details/' + task.id" class="action-button">
+            <mat-icon>visibility</mat-icon>
+          </button>
+
+          <button mat-icon-button color="primary" class="update-button" [matMenuTriggerFor]="statusMenu">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <mat-menu #statusMenu="matMenu">
+          <button mat-menu-item (click)="updateStatus(task.id, 'BASLANDI')">
+            <div class="status-box">BAŞLANDI</div>
+          </button>
+          <button mat-menu-item (click)="updateStatus(task.id, 'TAMAMLANDI')">
+            <div class="status-box">TAMAMLANDI</div>
+          </button>
+        </mat-menu>
+      </div>
+
+      </div>
+    </mat-card>
+  </div>
+
+</div>

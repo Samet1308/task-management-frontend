@@ -45,7 +45,7 @@ export class LoginComponent {
         StorageService.saveToken(res.jwt)
         StorageService.saveUser(user)
         if(StorageService.isAdminLoggedIn()){
-          this.router.navigateByUrl("admin/admin-dash")
+          this.router.navigateByUrl("admin/dashboard")
         }else if(StorageService.isEmployeeLoggedIn()){
           this.router.navigateByUrl("employee/dashboard")
         }else{

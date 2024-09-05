@@ -22,7 +22,7 @@
   padding: 50px;
   position: absolute;
   width: 380px;
-  background-color: #c7dbff;
+  background-color: #b1ccff;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -36,20 +36,32 @@
   height: 91vh;
   position: relative;
 }
-.bg-container{
-  background-color: rgba(248, 248, 248, 0.3);
+.bg-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: rgba(248, 248, 248, 0.3) !important; /* Arka plan rengi ve saydamlık derecesi */
+  z-index: 0;
+  background-size: cover !important;
+  background-position: center !important;
 }
-.background-image {
+
+.bg-container:before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-image: url('https://projectsly.com/images/task-management-screenshot-1.png?v=1691124479409199525');
   background-size: cover;
   background-position: center;
-  background-color: rgba(248, 248, 248, 0.7); /* Beyaz renk ve %30 opaklık */
-  opacity: 0.7; /* Arka planın %70 opak olması */
+  opacity: 0.2; /* Arka plan fotoğrafının saydamlık derecesi */
+  z-index: -1; /* Arka planı en alta alır */
 }
+
+
+
 .login-form-container {
   position: relative;
   z-index: 1; /* Login formunu arka plan fotoğrafının üzerine getir */

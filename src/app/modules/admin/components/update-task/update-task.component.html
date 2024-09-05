@@ -1,0 +1,61 @@
+<div class="bg-container">
+  <div class="container">
+    <h2>Görev Güncelle</h2>
+    <form [formGroup]="updateTaskForm">
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="title">Title</nz-form-label>
+        <nz-form-control nzErrorTip="This Input Is Required!">
+          <input nz-input id="title" placeholder="Title" formControlName="title" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="description">Açıklama</nz-form-label>
+        <nz-form-control nzErrorTip="Gerekli Alan!">
+          <textarea nz-input id="description" placeholder="Açıklama" formControlName="description"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="dueDate">Bitiş Tarihi</nz-form-label>
+        <nz-form-control nzErrorTip="Gerekli Alan!">
+          <nz-date-picker id="dueDate" formControlName="dueDate" nzPlaceHolder="Bitiş Tarihini Seçiniz"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="priority">Öncelik Durumu</nz-form-label>
+        <nz-form-control nzErrorTip="Gerekli Alan!">
+          <nz-select id="priority" formControlName="priority" nzPlaceHolder="Öncelik Durumu Seçiniz">
+            <nz-option *ngFor="let priority of listOfPriorities" [nzValue]="priority" [nzLabel]="priority"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="priority">Görev Durumu</nz-form-label>
+        <nz-form-control nzErrorTip="Gerekli Alan!">
+          <nz-select id="taskStatus" formControlName="taskStatus" nzPlaceHolder="Görev Durumunu Seçiniz">
+            <nz-option *ngFor="let taskStatus of listOfTaskStatus" [nzValue]="taskStatus" [nzLabel]="taskStatus"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="employeeId">Personel İsmi</nz-form-label>
+        <nz-form-control nzErrorTip="Gerekli Alan!">
+          <nz-select id="employeeId" formControlName="employeeId" nzPlaceHolder="Personel Seçiniz">
+            <nz-option *ngFor="let employee of listOfEmployees" [nzValue]="employee.id" [nzLabel]="employee.name"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-item">
+        <nz-form-control>
+          <button nz-button nzType="primary" [disabled]="updateTaskForm.invalid" (click)="updateTask()">Post Task</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>
+

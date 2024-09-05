@@ -1,1 +1,60 @@
-<p>admin-dashboard works!</p>
+<div class="bg-container" style="background-image: url('https://projectsly.com/images/task-management-screenshot-1.png?v=1691124479409199525');">
+  <h5 class="task-list-title">Atanmış Görevler</h5>
+
+  <form class="search-form" [formGroup]="searchForm">
+    <nz-form-item class="search-input">
+      <nz-form-control>
+        <input nz-input id="search" placeholder="Aramak istediğiniz kelimeyi giriniz." formControlName="title"
+               (input)="searchTask()"/>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+
+
+  <div class="task-list-container" >
+    <!-- Başlık eklendi -->
+    <div class="task-list">
+      <mat-card class="task-card" *ngFor="let task of listOfTasks">
+        <div class="task-details">
+          <h2 class="task-name" routerLink="/admin/task-details/{{task.id}}">{{ task.title }}</h2>
+          <p class="task-description">{{ task.description }}</p>
+          <mat-divider></mat-divider>
+          <div class="task-info">
+            <div class="info-row">
+              <span class="info-label">Bitiş Tarihi:</span>
+              <span class="info-value">{{ task.dueDate | date: 'MMM d, y' }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Personel:</span>
+              <span class="info-value">{{ task.employeeName }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Öncelik Durumu:</span>
+              <span class="info-value">{{ task.priority }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Görev Durumu:</span>
+              <span class="info-value">{{ task.taskStatus }}</span>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+
+          <div class="actions">
+            <button nz-button nzType="default" nzShape="circle" nz-tooltip nzTooltipTitle="Detay" [routerLink]="'/admin/task-details/' + task.id" class="action-button">
+              <i nz-icon nzType="eye" nzTheme="outline"></i>
+            </button>
+            <button nz-button nzType="primary" nzShape="circle" nz-tooltip nzTooltipTitle="Düzenle" [routerLink]="'/admin/task/' + task.id + '/edit'" class="action-button">
+              <i nz-icon nzType="edit" nzTheme="outline"></i>
+            </button>
+            <button nz-button nzDanger nzType="default" nzShape="circle" nz-tooltip nzTooltipTitle="Sil" (click)="deleteTask(task.id)" class="action-button">
+              <i nz-icon nzType="delete" nzTheme="outline"></i>
+            </button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
+
+

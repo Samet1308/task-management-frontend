@@ -1,0 +1,75 @@
+<h2>{{taskData.employeeName}} Kullanıcısına Ait Görevler</h2>
+
+<div class="bg-container" style="background-image: url('https://projectsly.com/images/task-management-screenshot-1.png?v=1691124479409199525');">
+
+  <div class="task-list" *ngIf="taskData">
+
+    <mat-card class="task-card" >
+
+      <div class="task-details">
+        <h2 class="task-name">{{ taskData.title}}</h2>
+        <p class="task-description">{{ taskData.description }}</p>
+        <mat-divider></mat-divider>
+
+        <div class="task-info">
+          <div class="info-row">
+            <span class="info-label">Bitiş Tarihi: </span>
+            <span class="info-value">{{ taskData.dueDate | date: 'MMM d, y'}}</span> </div>
+          <div class="info-row">
+            <span class="info-label"> Personel:</span>
+            <span class="info-value">{{ taskData.employeeName }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Öncelik:</span>
+            <span class="info-value">{{ taskData.priority }}</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Durum:</span>
+            <span class="info-value">{{ taskData.taskStatus }}</span>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+
+  <nz-card class="comment-card" nzTitle="Yorum Yaz">
+    <form [formGroup]="commentForm">
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="content">Yorum</nz-form-label>
+
+        <nz-form-control [nzSm]="18" [nzXs]="24">
+          <textarea nz-input formControlName="content" id="content" rows="4"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button nzType="primary" [disabled]="!commentForm.valid" (click)="publishComment()" style="float: right;">Gönder</button>
+    </form>
+  </nz-card>
+
+
+  <div class="comments" style="margin-top: 10px;">
+    <h4>Yorumlar</h4>
+    <div class="no-comments" *ngIf="comments.length === 0" style="color: #777;">
+      Henüz yorum yoktur.
+    </div>
+    <nz-card class="custom-card" *ngFor="let comment of comments" style="margin-top: 10px;">
+      <nz-card-meta
+        [nzAvatar]="commentAvatar"
+        [nzTitle]="comment.postedBy"
+        [nzDescription]="comment.createdAt | date:'medium'">
+      </nz-card-meta>
+      <ng-template #commentAvatar>
+        <nz-avatar nzIcon="user"></nz-avatar>
+      </ng-template>
+      <div nz-card-content>
+        {{ comment.content }}
+      </div>
+    </nz-card>
+  </div>
+
+</div>
+
+
+
+
+

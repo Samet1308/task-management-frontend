@@ -31,11 +31,11 @@ export class SignupComponent {
     this.authService.signup(this.signupForm.value).subscribe((res) =>{
       console.log(res)
       if(res.id != null){
-        this.message.success("Giriş Başarılı", {nzDuration:5000})
+        this.message.success("Kayıt Başarılı", {nzDuration:5000})
         this.router.navigateByUrl("/login")
       }
       else{
-        this.message.error("Giriş Başarısız.Tekrar Deneyiniz.", {nzDuration:5000})
+        this.message.error("Kayıt Başarısız.Tekrar Deneyiniz.", {nzDuration:5000})
       }
 
     })

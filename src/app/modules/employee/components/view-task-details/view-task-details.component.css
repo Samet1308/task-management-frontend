@@ -1,0 +1,144 @@
+
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #f8f8f8;
+  min-height: 37vh;
+  padding: 20px;
+
+  .task-card {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+    .task-details {
+      padding: 20px;
+
+      .task-name {
+        font-size: 20px;
+        font-weight: bold;
+        color: #108ee9;
+        margin-bottom: 10px;
+      }
+
+      .task-description {
+        margin-bottom: 10px;
+      }
+
+      .task-info {
+        display: flex;
+        flex-wrap: wrap; margin-bottom: 10px;
+        margin-top: 10px;
+      }
+      .info-row {
+        flex: 50%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .info-label {
+        margin-right: 5px;
+      }
+
+      .info-value {
+        font-weight: bold;
+      }
+
+    }
+  }
+  .actions {
+
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+
+    .update-button {
+      margin-right: 10px;
+    }
+
+    .view-button {
+      margin-right: 10px;
+
+    }
+  }
+}
+
+.comment-card {
+  max-width: 600px; /* Kartın maksimum genişliği 600 piksel olarak ayarlanmıştır. */
+  margin: 20px auto; /* Üst ve alt kenar boşlukları 20 piksel, sağ ve sol kenar boşlukları otomatik olarak ortalanmış. */
+  padding: 20px; /* Kart içeriğinin etrafındaki boşluk 20 piksel olarak ayarlanmıştır. */
+  border-radius: 10px; /* Kartın köşeleri 10 piksel yuvarlatılmıştır. */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Kartın altına hafif bir gölge ekleyerek yükseltilmiş bir efekt verilmiştir. */
+  background-color: #f9f9f9; /* Kartın arka plan rengi çok açık gri olarak ayarlanmıştır. */
+  border: 1px solid #ddd; /* Kartın çevresine açık gri bir çerçeve eklenmiştir. */
+}
+
+.comment-card h4 {
+  font-size: 24px; /* Başlık metninin boyutu 24 piksel olarak ayarlanmıştır. */
+  font-weight: 600; /* Başlık metninin kalınlığı artırılmıştır. */
+  color: #333; /* Başlık metninin rengi koyu gri olarak ayarlanmıştır. */
+  margin-bottom: 15px; /* Başlık ile altındaki içerik arasında 15 piksel boşluk bırakılmıştır. */
+}
+
+.nz-form-item {
+  width: 100%; /* Form elemanlarının genişliği, içinde bulundukları alanın %100'ü kadar genişler. */
+  margin-bottom: 20px; /* Her form elemanının altına 20 piksel boşluk bırakılmıştır. */
+}
+
+textarea {
+  width: 100%; /* Metin alanı, kullanılabilir alanın tamamını kaplayacak şekilde genişler. */
+  padding: 10px; /* Metin alanının iç kenar boşlukları 10 piksel olarak ayarlanmıştır. */
+  border: 1px solid #ccc; /* Metin alanının çevresine orta gri renkte bir çerçeve eklenmiştir. */
+  border-radius: 4px; /* Metin alanının köşeleri hafifçe yuvarlatılmıştır. */
+  font-size: 14px; /* Metin alanındaki metnin boyutu 14 piksel olarak ayarlanmıştır. */
+}
+
+button[nz-button] {
+  margin-top: 10px; /* Butonun üst kısmına 10 piksel boşluk eklenmiştir. */
+  background-color: #6200ea; /* Butonun arka plan rengi mor olarak ayarlanmıştır. */
+  color: #fff; /* Buton metninin rengi beyaz olarak ayarlanmıştır. */
+  transition: background-color 0.3s ease; /* Arka plan rengi değişiminde geçiş efekti sağlanmıştır. */
+}
+
+button[nz-button]:hover {
+  background-color: #3700b3; /* Buton üzerine gelindiğinde arka plan rengi daha koyu mor olur. */
+}
+
+button[nz-button][disabled] {
+  background-color: #ddd; /* Devre dışı bırakılmış butonun arka plan rengi açık gri olur. */
+  color: #888; /* Devre dışı bırakılmış butonun metin rengi gri olur. */
+}
+h4 {
+  font-size: 24px; /* Yorum başlığının font boyutu */
+  font-weight: bold; /* Yorum başlığının kalınlığı */
+  color: #333; /* Başlık metninin koyu gri rengi */
+  margin-bottom: 15px; /* Başlık ile kartlar arasındaki boşluk */
+}
+
+nz-card {
+  border-radius: 10px; /* Kartın köşelerinin yuvarlaklığı */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Kartın altında hafif bir gölge */
+  background-color: #f9f9f9; /* Kartın arka plan rengi */
+}
+
+nz-card-meta {
+  margin-bottom: 10px; /* Kart başlığı ve içeriği arasındaki boşluk */
+}
+
+.nz-avatar {
+  background-color: #e0e0e0; /* Avatar arka plan rengi */
+  color: #555; /* Avatar içindeki simge rengi */
+}
+
+nz-card-content {
+  font-size: 14px; /* Yorum metninin boyutu */
+  color: #666; /* Yorum metninin rengi */
+  line-height: 1.5; /* Satır yüksekliği, okunabilirliği artırır */
+}
+
+
+
+

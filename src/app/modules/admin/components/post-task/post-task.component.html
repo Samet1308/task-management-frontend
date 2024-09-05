@@ -1,1 +1,54 @@
-<p>post-task works!</p>
+
+<div class="bg-container">
+
+  <div class="container">
+    <h2>Görev Oluştur</h2>
+    <form [formGroup]="taskForm">
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="title">Başlık</nz-form-label>
+        <nz-form-control nzErrorTip="Burası Gerekli Alandır!!">
+          <input nz-input id="title" placeholder="Başlık" formControlName="title" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="description">Açıklama</nz-form-label>
+        <nz-form-control nzErrorTip="Burası Gerekli Alandır!">
+          <textarea nz-input id="description" placeholder="Açıklama" formControlName="description"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="dueDate">Bitiş Tarihi</nz-form-label>
+        <nz-form-control [nzErrorTip]="errorTip">
+          <nz-date-picker id="dueDate" formControlName="dueDate" nzPlaceHolder="Bitiş Tarihi Seçiniz"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+
+
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="priority">Görev Önceliği</nz-form-label>
+        <nz-form-control nzErrorTip="This Input Is Required!">
+          <nz-select id="priority" formControlName="priority" nzPlaceHolder="Görev Önceliğini Seçiniz">
+            <nz-option *ngFor="let priority of listOfPriorities" [nzValue]="priority" [nzLabel]="priority"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-item">
+        <nz-form-label nzRequired nzFor="employeeId">Çalışanı Seçin</nz-form-label>
+        <nz-form-control nzErrorTip="Burası Gerekli Alandır!">
+          <nz-select id="employeeId" formControlName="employeeId" nzPlaceHolder="Çalışanı Seçin">
+            <nz-option *ngFor="let employee of listOfEmployees" [nzValue]="employee.id" [nzLabel]="employee.name"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-item">
+        <nz-form-control>
+          <button nz-button nzType="primary" [disabled]="taskForm.invalid" (click)="postTask()">Görev Ekle</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 
-<div *ngIf ="!isAdminLoggedIn && !isEmployeeLoggedIn">
+<div *ngIf ="!isAdminLoggedIn && !isEmployeeLoggedIn" >
   <nz-header class="main-header" nz-row nzType="flex" class="custom-navbar">
     <div>
       <a style="color: white; margin-left:50px; font-size:20px; font-weight:bolder;font-style: italic"
@@ -19,8 +19,9 @@
          routerLink="/admin/dashboard">Görev Yönetim Sistemi</a>
     </div>
     <div class="nav-links">
-      <a nz-button nzType="link" routerLink="admin/admin-dash" routerLinkActive="active">Ana Sayfa </a>
+      <a nz-button nzType="link" routerLink="admin/dashboard" routerLinkActive="active">Ana Sayfa </a>
       <a nz-button nzType="link" routerLink="admin/task" routerLinkActive="active">Görev Ekle </a>
+      <a nz-button nzType="link" routerLink="admin/users" routerLinkActive="active">Personel </a>
       <a nz-button nzType="link" (click)="logout()"  routerLinkActive="active">Çıkış Yap </a>
     </div>
   </nz-header>
