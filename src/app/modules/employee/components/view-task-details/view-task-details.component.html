@@ -1,4 +1,6 @@
-<div class="bg-container">
+<div class="bg-container" style="background-image: url('https://projectsly.com/images/task-management-screenshot-1.png?v=1691124479409199525');">
+
+  <h2> Hoş Geldiniz {{taskData.employeeName}}</h2>
   <div class="task-list" *ngIf="taskData">
     <mat-card class="task-card" >
 
@@ -37,14 +39,14 @@
           <textarea nz-input formControlName="content" id="content" rows="4"></textarea>
         </nz-form-control>
       </nz-form-item>
-      <button nz-button nzType="primary" [disabled]="!commentForm.valid" (click)="publishComment()" style="float: right;">Publish Comment</button>
+      <button nz-button nzType="primary" [disabled]="!commentForm.valid" (click)="publishComment()" style="float: right;">Gönder</button>
     </form>
   </nz-card>
 
 
   <div style="margin-top: 10px;">
     <h4>Yorumlar</h4>
-    <div *ngIf="comments.length === 0" style="margin-top: 10px; color: #777;">
+    <div *ngIf="comments.length === 0" style="margin-left: 50px; color: #777;">
       Henüz yorum yoktur.
     </div>
     <nz-card *ngFor="let comment of comments" style="margin-top: 10px;">

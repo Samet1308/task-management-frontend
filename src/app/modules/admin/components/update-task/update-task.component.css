@@ -52,3 +52,11 @@ button[nz-button] {
   font-size: 16px;
   margin-top: 20px;
 }
+
+.nz-select {
+  pointer-events: none; /* Kullanıcı etkileşimini engeller */
+}
+
+.nz-select .ant-select-selector {
+  cursor: not-allowed; /* İmleci 'not-allowed' olarak gösterir */
+}

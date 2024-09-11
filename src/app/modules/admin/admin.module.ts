@@ -29,6 +29,7 @@ import {NzColDirective} from "ng-zorro-antd/grid";
 import {NzAvatarComponent} from "ng-zorro-antd/avatar";
 import {NzDividerComponent} from "ng-zorro-antd/divider";
 import { GetUsersComponent } from './components/get-users/get-users.component';
+import {NzTableComponent} from "ng-zorro-antd/table";
 
 
 @NgModule({
@@ -37,49 +38,48 @@ import { GetUsersComponent } from './components/get-users/get-users.component';
     PostTaskComponent,
     UpdateTaskComponent,
     ViewTaskDetailsComponent,
-    GetUsersComponent
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    ReactiveFormsModule,
-    MatInput,
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        ReactiveFormsModule,
+        MatInput,
 
-    MatDatepicker,
-    MatDatepickerInput,
-    MatOption,
-    MatSelect,
-    MatDatepickerToggle,
-    MatButton,
-    NzFormItemComponent,
-    NzFormLabelComponent,
-    NzFormControlComponent,
-    NzInputDirective,
-    NzDatePickerComponent,
-    NzSelectComponent,
-    NzOptionComponent,
-    NzButtonComponent,
-    MatCard,
-    MatDivider,
-    MatIcon,
-    MatIconButton,
-    MatIconAnchor,
-    MatIconModule,
-    NzIconDirective,
-    NzTooltipDirective,
-    MatMenu,
-    MatMenuItem,
-    MatCardContent,
-    MatLabel,
-    MatFormField,
-    NzCardComponent,
-    NzColDirective,
-    MatCardHeader,
-    NzCardMetaComponent,
-    NzAvatarComponent,
-    NzDividerComponent
+        MatDatepicker,
+        MatDatepickerInput,
+        MatOption,
+        MatSelect,
+        MatDatepickerToggle,
+        MatButton,
+        NzFormItemComponent,
+        NzFormLabelComponent,
+        NzFormControlComponent,
+        NzInputDirective,
+        NzDatePickerComponent,
+        NzSelectComponent,
+        NzOptionComponent,
+        NzButtonComponent,
+        MatCard,
+        MatDivider,
+        MatIcon,
+        MatIconButton,
+        MatIconAnchor,
+        MatIconModule,
+        NzIconDirective,
+        NzTooltipDirective,
+        MatMenu,
+        MatMenuItem,
+        MatCardContent,
+        MatLabel,
+        MatFormField,
+        NzCardComponent,
+        NzColDirective,
+        MatCardHeader,
+        NzCardMetaComponent,
+        NzAvatarComponent,
+        NzDividerComponent,
+        NzTableComponent
 
-
-  ]
+    ],
 })
 export class AdminModule { }

@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {StorageService} from "../../../auth/services/storage/storage.service";
 import {Observable} from "rxjs";
 
-const BASIC_URL = ["http://localhost:8080"]
+const BASIC_URL = "http://localhost:8080"
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +61,9 @@ export class AdminService {
         headers:this.createAuthorizationHeader()
       })
   }
+  getTasksByUserId(userId: number): Observable<any> {
+    return this.httpClient.get<[]>(BASIC_URL + `/api/admin/user/${userId}`);
+  }
 
   getCommentsById(id:number): Observable<any> {
     return  this.httpClient.get<[]>(BASIC_URL+`/api/admin/comments/${id}`,
@@ -85,7 +88,7 @@ export class AdminService {
   createAuthorizationHeader():HttpHeaders{
     let authHeaders:HttpHeaders = new HttpHeaders()
     return authHeaders.set(
-      "Authorization", "Bearer" + StorageService.getToken()
+      "Authorization", "Bearer " + StorageService.getToken()
     )
   }
 }

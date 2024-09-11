@@ -1,1 +1,68 @@
-<p>get-users works!</p>
+<div class="user-container">
+  <h2>Kullanıcı Listesi</h2>
+
+  <!-- Kullanıcıların listelendiği tablo -->
+  <table class="user-table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Kullanıcı Adı</th>
+      <th>E-posta</th>
+      <th>Rol</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of listOfUsers; let i = index" (click)="onUserClick(user.id)">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>Personel</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Seçilen kullanıcıya ait görev kartları -->
+  <div class="task-list-container" *ngIf="selectedUserTasks.length > 0">
+    <h3>{{ selectedUserName }} kullanıcısına ait görevler</h3>
+    <div class="task-list">
+      <mat-card class="task-card" *ngFor="let task of selectedUserTasks">
+        <div class="task-details">
+          <h2 class="task-name" routerLink="/admin/task-details/{{task.id}}">{{ task.title }}</h2>
+          <p class="task-description">{{ task.description }}</p>
+          <mat-divider></mat-divider>
+          <div class="task-info">
+            <div class="info-row">
+              <span class="info-label">Bitiş Tarihi:</span>
+              <span class="info-value">{{ task.dueDate | date: 'MMM d, y' }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Personel:</span>
+              <span class="info-value">{{ task.employeeName }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Öncelik Durumu:</span>
+              <span class="info-value">{{ task.priority }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Görev Durumu:</span>
+              <span class="info-value">{{ task.taskStatus }}</span>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+
+          <div class="actions">
+            <button nz-button nzType="default" nzShape="circle" nz-tooltip nzTooltipTitle="Detay" [routerLink]="'/admin/task-details/' + task.id" class="action-button">
+              <i nz-icon nzType="eye" nzTheme="outline"></i>
+            </button>
+            <button nz-button nzType="primary" nzShape="circle" nz-tooltip nzTooltipTitle="Düzenle" [routerLink]="'/admin/task/' + task.id + '/edit'" class="action-button">
+              <i nz-icon nzType="edit" nzTheme="outline"></i>
+            </button>
+            <button nz-button nzDanger nzType="default" nzShape="circle" nz-tooltip nzTooltipTitle="Sil" (click)="deleteTask(task.id)" class="action-button">
+              <i nz-icon nzType="delete" nzTheme="outline"></i>
+            </button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

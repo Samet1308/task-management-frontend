@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
 import {NzMessageService} from "ng-zorro-antd/message";
 import {EmployeeService} from "../../services/employee.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,12 +9,13 @@ import {Router} from "@angular/router";
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+  taskId: number = this.activatedRoute.snapshot.params["id"]
   listOfTasks: any = []
-  searchForm!: FormGroup;
+  taskData: any = {}
   constructor(
     private employeeService : EmployeeService,
     private message: NzMessageService,
-    private router : Router
+    private activatedRoute: ActivatedRoute,
   ) {
     this.getTasks()
   }
@@ -24,6 +24,12 @@ export class DashboardComponent {
     this.employeeService.getEmployeeTaskById().subscribe((res)=>{
       console.log(res)
       this.listOfTasks = res
+    })
+  }
+
+  getTaskById(){
+    this.employeeService.getTaskById(this.taskId).subscribe((res) => {
+      this.taskData = res
     })
   }
   updateStatus(id:number , status:string){

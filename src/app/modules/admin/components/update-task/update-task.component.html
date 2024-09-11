@@ -35,7 +35,7 @@
       <nz-form-item class="form-item">
         <nz-form-label nzRequired nzFor="priority">Görev Durumu</nz-form-label>
         <nz-form-control nzErrorTip="Gerekli Alan!">
-          <nz-select id="taskStatus" formControlName="taskStatus" nzPlaceHolder="Görev Durumunu Seçiniz">
+          <nz-select id="taskStatus" formControlName="taskStatus" nzPlaceHolder="Görev Durumunu Seçiniz" [nzDisabled]="true">
             <nz-option *ngFor="let taskStatus of listOfTaskStatus" [nzValue]="taskStatus" [nzLabel]="taskStatus"></nz-option>
           </nz-select>
         </nz-form-control>
@@ -44,7 +44,7 @@
       <nz-form-item class="form-item">
         <nz-form-label nzRequired nzFor="employeeId">Personel İsmi</nz-form-label>
         <nz-form-control nzErrorTip="Gerekli Alan!">
-          <nz-select id="employeeId" formControlName="employeeId" nzPlaceHolder="Personel Seçiniz">
+          <nz-select id="employeeId" formControlName="employeeId" nzPlaceHolder="Personel Seçiniz" [nzDisabled]="true">
             <nz-option *ngFor="let employee of listOfEmployees" [nzValue]="employee.id" [nzLabel]="employee.name"></nz-option>
           </nz-select>
         </nz-form-control>
@@ -52,7 +52,7 @@
 
       <nz-form-item class="form-item">
         <nz-form-control>
-          <button nz-button nzType="primary" [disabled]="updateTaskForm.invalid" (click)="updateTask()">Post Task</button>
+          <button nz-button nzType="primary" [disabled]="updateTaskForm.invalid" (click)="updateTask()">Güncelle</button>
         </nz-form-control>
       </nz-form-item>
     </form>
